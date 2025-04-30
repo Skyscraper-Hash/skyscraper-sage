@@ -202,7 +202,7 @@ class Bar:
 
 
 class Skyscraper:    
-    def __init__(self, p, n=1, beta=5, num_S=2, num_B=2, N=2, s=8, debug=False, debugBar=False, rep='b', montgomery=True):
+    def __init__(self, p, n=1, beta=5, s=8, debug=False, debugBar=False, rep='b', montgomery=True):
         '''
         p ... Prime.
         n ... Power for (extension) field GF(p^n).
@@ -230,10 +230,10 @@ class Skyscraper:
         self.BAR = Bar(p=p, n=n, beta=beta, s=s, debug=debugBar, rep=rep)
         
         # Construction of Feistel
-        self.num_B = num_B
-        self.num_S = num_S
-        self.N = N
-        self.R = num_S + (num_B + num_S)*N # total number of Feistel rounds
+#        self.num_B = num_B
+#        self.num_S = num_S
+#        self.N = N
+        self.R = 18 # total number of Feistel rounds
         self.rcons = self.get_rcons()
         self.debug = debug
         
@@ -253,7 +253,7 @@ class Skyscraper:
         return [self.F.zero()] + rcons_field + [self.F.zero()]
     
     def is_square_round(self, i):
-        return i % (self.num_S + self.num_B) < self.num_S
+        return i not in [6,7,10,11]
     
     def __str__(self):
         return f"SKYSCRAPER over {self.F}. Feistel rounds: " + ' '.join(['x^2']*self.num_S + (['B']*self.num_B + ['x^2']*self.num_S) * self.N)
@@ -336,18 +336,18 @@ class Skyscraper:
 # --------------------------------------------------------------------------    
 # INSTANCES
 # --------------------------------------------------------------------------    
-Sky_BLS381_1 = Skyscraper(p=p_BLS12_381, n=1, s=8, num_B=2, num_S=2, N=2)
-Sky_BLS381_2 = Skyscraper(p=p_BLS12_381, n=2, beta=5, s=8, num_B=2, num_S=2, N=2)
-Sky_BLS381_3 = Skyscraper(p=p_BLS12_381, n=3, beta=2, s=8, num_B=2, num_S=2, N=2)
+Sky_BLS381_1 = Skyscraper(p=p_BLS12_381, n=1, s=8)
+Sky_BLS381_2 = Skyscraper(p=p_BLS12_381, n=2, beta=5, s=8)
+Sky_BLS381_3 = Skyscraper(p=p_BLS12_381, n=3, beta=2, s=8)
 
-Sky_BN254_1 = Skyscraper(p=p_BN_254, n=1, s=8, num_B=2, num_S=2, N=2)
-Sky_BN254_2 = Skyscraper(p=p_BN_254, n=2, beta=5, s=8, num_B=2, num_S=2, N=2)
-Sky_BN254_3 = Skyscraper(p=p_BN_254, n=3, beta=3, s=8, num_B=2, num_S=2, N=2)
+Sky_BN254_1 = Skyscraper(p=p_BN_254, n=1, s=8)
+Sky_BN254_2 = Skyscraper(p=p_BN_254, n=2, beta=5, s=8)
+Sky_BN254_3 = Skyscraper(p=p_BN_254, n=3, beta=3, s=8)
 
-Sky_PALLAS_1 = Skyscraper(p=p_PALLAS, n=1, s=8, num_B=2, num_S=2, N=2)
-Sky_PALLAS_2 = Skyscraper(p=p_PALLAS, n=2, beta=5, s=8, num_B=2, num_S=2, N=2)
-Sky_PALLAS_3 = Skyscraper(p=p_PALLAS, n=3, beta=2, s=8, num_B=2, num_S=2, N=2)
+Sky_PALLAS_1 = Skyscraper(p=p_PALLAS, n=1, s=8)
+Sky_PALLAS_2 = Skyscraper(p=p_PALLAS, n=2, beta=5, s=8)
+Sky_PALLAS_3 = Skyscraper(p=p_PALLAS, n=3, beta=2, s=8)
 
-Sky_VESTA_1 = Skyscraper(p=p_VESTA, n=1, s=8, num_B=2, num_S=2, N=2)
-Sky_VESTA_2 = Skyscraper(p=p_VESTA, n=2, beta=5, s=8, num_B=2, num_S=2, N=2)
-Sky_VESTA_3 = Skyscraper(p=p_VESTA, n=3, beta=2, s=8, num_B=2, num_S=2, N=2)
+Sky_VESTA_1 = Skyscraper(p=p_VESTA, n=1, s=8)
+Sky_VESTA_2 = Skyscraper(p=p_VESTA, n=2, beta=5, s=8)
+Sky_VESTA_3 = Skyscraper(p=p_VESTA, n=3, beta=2, s=8)
