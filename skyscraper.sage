@@ -336,18 +336,20 @@ class Skyscraper:
 # --------------------------------------------------------------------------    
 # INSTANCES
 # --------------------------------------------------------------------------    
-Sky_BLS381_1 = Skyscraper(p=p_BLS12_381, n=1, s=8)
-Sky_BLS381_2 = Skyscraper(p=p_BLS12_381, n=2, beta=5, s=8)
-Sky_BLS381_3 = Skyscraper(p=p_BLS12_381, n=3, beta=2, s=8)
+debug = False
+debugBar = False
+Sky_BLS381_1 = Skyscraper(p=p_BLS12_381, n=1, debug=debug, debugBar=debugBar, s=8)
+Sky_BLS381_2 = Skyscraper(p=p_BLS12_381, n=2, debug=debug, debugBar=debugBar, beta=5, s=8)
+Sky_BLS381_3 = Skyscraper(p=p_BLS12_381, n=3, debug=debug, debugBar=debugBar, beta=2, s=8)
 
-Sky_BN254_1 = Skyscraper(p=p_BN_254, n=1, s=8)
-Sky_BN254_2 = Skyscraper(p=p_BN_254, n=2, beta=5, s=8)
-Sky_BN254_3 = Skyscraper(p=p_BN_254, n=3, beta=3, s=8)
+Sky_BN254_1 = Skyscraper(p=p_BN_254, debug=debug, debugBar=debugBar, n=1, s=8)
+Sky_BN254_2 = Skyscraper(p=p_BN_254, debug=debug, debugBar=debugBar, n=2, beta=5, s=8)
+Sky_BN254_3 = Skyscraper(p=p_BN_254, debug=debug, debugBar=debugBar, n=3, beta=3, s=8)
 
-Sky_PALLAS_1 = Skyscraper(p=p_PALLAS, n=1, s=8)
-Sky_PALLAS_2 = Skyscraper(p=p_PALLAS, n=2, beta=5, s=8)
-Sky_PALLAS_3 = Skyscraper(p=p_PALLAS, n=3, beta=2, s=8)
+Sky_PALLAS_1 = Skyscraper(p=p_PALLAS, n=1, debug=debug, debugBar=debugBar, s=8)
+Sky_PALLAS_2 = Skyscraper(p=p_PALLAS, n=2, debug=debug, debugBar=debugBar, beta=5, s=8)
+Sky_PALLAS_3 = Skyscraper(p=p_PALLAS, n=3, debug=debug, debugBar=debugBar, beta=2, s=8)
 
-Sky_VESTA_1 = Skyscraper(p=p_VESTA, n=1, s=8)
-Sky_VESTA_2 = Skyscraper(p=p_VESTA, n=2, beta=5, s=8)
-Sky_VESTA_3 = Skyscraper(p=p_VESTA, n=3, beta=2, s=8)
+Sky_VESTA_1 = Skyscraper(p=p_VESTA, n=1, debug=debug, debugBar=debugBar, s=8)
+Sky_VESTA_2 = Skyscraper(p=p_VESTA, n=2, debug=debug, debugBar=debugBar, beta=5, s=8)
+Sky_VESTA_3 = Skyscraper(p=p_VESTA, n=3, debug=debug, debugBar=debugBar, beta=2, s=8)
